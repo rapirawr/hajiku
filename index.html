@@ -24,85 +24,80 @@
             border: 1px solid rgba(255, 255, 255, 0.1);
             transition: all 0.3s ease;
         }
-        .glass-card:hover {
-            background: rgba(255, 255, 255, 0.1);
-            transform: translateY(-10px);
-            border-color: #86efac;
+        /* Sold Out Styling */
+        .sold-out-overlay {
+            background: rgba(26, 46, 38, 0.75);
+            backdrop-filter: blur(5px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 40;
+        }
+        .btn-disabled {
+            background: #374151 !important;
+            color: #9ca3af !important;
+            cursor: not-allowed;
+        }
+        
+        @keyframes marquee {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+        .animate-marquee {
+            display: flex;
+            width: max-content;
+            animation: marquee 20s linear infinite;
         }
         .floating {
             animation: floating 3s ease-in-out infinite;
         }
-
-        @keyframes marquee {
-    0% { transform: translateX(0); }
-    100% { transform: translateX(-50%); }
-}
-
-.animate-marquee {
-    display: flex;
-    width: max-content;
-    animation: marquee 20s linear infinite;
-}
-
         @keyframes floating {
             0% { transform: translate(0, 0px); }
             50% { transform: translate(0, 20px); }
             100% { transform: translate(0, 0px); }
         }
-
     </style>
 </head>
 <body class="hero-gradient">
 
- <nav class="fixed w-full z-50 px-6 md:px-12 py-4 flex justify-between items-center bg-[#1a2e26]/85 backdrop-blur-xl border-b border-white/5">
+<nav class="fixed w-full z-50 px-6 md:px-12 py-4 flex justify-between items-center bg-[#1a2e26]/85 backdrop-blur-xl border-b border-white/5">
     <a href="#" class="flex items-center gap-3 group">
         <img src="logo.png" alt="Logo HAJIKU" class="h-10 md:h-12 w-auto object-contain drop-shadow-[0_0_8px_rgba(74,222,128,0.3)] group-hover:scale-110 transition-transform duration-300">
-        
         <span class="text-2xl font-black tracking-tighter text-white group-hover:text-green-400 transition-colors">
             HAJIKU<span class="text-green-400">.</span>
         </span>
     </a>
-
     <div class="flex items-center gap-4">
-        <a href="#menu" class="bg-green-400 text-green-900 px-6 py-2.5 rounded-full font-bold hover:bg-white hover:scale-105 active:scale-95 transition-all shadow-lg shadow-green-400/20">
-            Pesan Sekarang
+        <a href="#menu" class="bg-green-400 text-green-900 px-6 py-2.5 rounded-full font-bold hover:bg-white transition-all shadow-lg">
+            Cek Menu
         </a>
     </div>
 </nav>
 
-    <section class="min-h-screen flex flex-col justify-center items-center text-center px-4 pt-20">
-        <div data-aos="fade-up" data-aos-duration="1000">
-            <span class="px-4 py-2 rounded-full border border-green-500/30 text-green-300 text-sm mb-6 inline-block">HAJIKU</span>
-            <h2 class="text-5xl md:text-8xl font-extrabold mb-6 leading-tight">
-                Rasa Bazar Favoritmu, <br> <span class="text-green-400">Tinggal Klik.</span>
-            </h2>
-            <p class="text-green-100/70 text-lg md:text-xl max-w-2xl mx-auto mb-10">
-                Siap nemenin lapar kamu di bazar sekolah!
-            </p>
-            <a href="#menu" class="bg-green-400 text-green-900 px-10 py-4 rounded-full text-lg font-bold hover:scale-105 transition-transform inline-block shadow-xl shadow-green-500/20">
-                Pesan Sekarang 😤
-            </a>
-        </div>
-        
-        <div class="mt-16 floating" data-aos="zoom-in" data-aos-delay="200">
-            <div class="w-64 h-64 md:w-96 md:h-96 bg-green-300 rounded-full blur-3xl opacity-20 absolute"></div>
-            <img src="logo.png" 
-                 alt="Food Hero" class="relative z-10 rounded-2xl shadow-2xl rotate-3 w-full max-w-md border-4 border-white/10">
-        </div>
-    </section>
+<section class="min-h-screen flex flex-col justify-center items-center text-center px-4 pt-20">
+    <div data-aos="fade-up" data-aos-duration="1000">
+        <span class="px-4 py-2 rounded-full border border-green-500/30 text-green-300 text-sm mb-6 inline-block">HAJIKU</span>
+        <h2 class="text-5xl md:text-8xl font-extrabold mb-6 leading-tight">
+            Rasa Bazar Favoritmu, <br> <span class="text-green-400">Tinggal Klik.</span>
+        </h2>
+        <p class="text-green-100/70 text-lg md:text-xl max-w-2xl mx-auto mb-10">
+            Siap nemenin lapar kamu di bazar sekolah! <br>
+            <span class="text-red-400 font-bold">Update: Maaf, semua stok hari ini sudah Sold Out!</span>
+        </p>
+    </div>
+    <div class="mt-16 floating" data-aos="zoom-in" data-aos-delay="200">
+        <div class="w-64 h-64 md:w-96 md:h-96 bg-green-300 rounded-full blur-3xl opacity-20 absolute"></div>
+        <img src="logo.png" alt="Food Hero" class="relative z-10 rounded-2xl shadow-2xl rotate-3 w-full max-w-md border-4 border-white/10 grayscale">
+    </div>
+</section>
 
- <section class="py-32 bg-white text-[#1a2e26] overflow-hidden">
+<section class="py-32 bg-white text-[#1a2e26] overflow-hidden">
     <div class="flex whitespace-nowrap overflow-hidden border-y border-black/5 py-4">
         <div class="animate-marquee flex">
-            <h2 class="text-[10vw] font-black uppercase italic opacity-10 px-4">
-                HAJIKU • HAJIKU • HAJIKU • HAJIKU • 
-            </h2>
-            <h2 class="text-[10vw] font-black uppercase italic opacity-10 px-4">
-                HAJIKU • HAJIKU • HAJIKU • HAJIKU • 
-            </h2>
+            <h2 class="text-[10vw] font-black uppercase italic opacity-10 px-4">HAJIKU • HAJIKU • HAJIKU • HAJIKU • </h2>
+            <h2 class="text-[10vw] font-black uppercase italic opacity-10 px-4">HAJIKU • HAJIKU • HAJIKU • HAJIKU • </h2>
         </div>
     </div>
-
     <div class="container mx-auto px-6 text-center -mt-10 md:-mt-20 relative z-10">
         <h3 class="text-4xl md:text-6xl font-extrabold" data-aos="zoom-in">
             "Harga jual murah, <br> Kawan ku"
@@ -110,144 +105,99 @@
     </div>
 </section>
 
-    <section id="bundling" class="py-24 relative overflow-hidden">
-    <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-green-400/10 blur-[120px] rounded-full -z-10"></div>
-
+<section id="bundling" class="py-24 relative overflow-hidden">
     <div class="container mx-auto px-6">
         <div class="mb-12 text-center" data-aos="fade-up">
             <span class="bg-yellow-400 text-black px-4 py-1 rounded-full text-sm font-black uppercase tracking-widest">Paling Laris 🎉</span>
             <h2 class="text-4xl md:text-5xl font-black mt-4">PAKET BUNDLING</h2>
         </div>
-
-        <div class="max-w-4xl mx-auto" data-aos="zoom-in" data-aos-duration="1000">
-            <div class="relative group">
-                <div class="absolute -inset-1 bg-gradient-to-r from-green-400 to-yellow-400 rounded-[3rem] blur opacity-25 group-hover:opacity-50 transition duration-1000"></div>
-                
-                <div class="relative glass-card p-8 md:p-12 rounded-[3rem] border border-green-400/30 flex flex-col md:flex-row items-center gap-10">
-                    <div class="relative w-full md:w-1/2 flex justify-center">
-                        <div class="relative w-48 h-48 md:w-64 md:h-64">
-                            <img src="Food_image/nasi_ayam.jpeg" 
-                                 class="absolute top-0 left-0 w-40 h-40 md:w-52 md:h-52 object-cover rounded-3xl rotate-[-10deg] border-4 border-[#1a2e26] shadow-2xl z-20">
-                            <img src="Food_image/es.jpeg" 
-                                 class="absolute bottom-0 right-0 w-40 h-40 md:w-52 md:h-52 object-cover rounded-3xl rotate-[10deg] border-4 border-[#1a2e26] shadow-2xl z-10">
-                        </div>
+        <div class="max-w-4xl mx-auto relative group" data-aos="zoom-in">
+            <div class="absolute inset-0 sold-out-overlay rounded-[3rem]">
+                <div class="text-center -rotate-12 border-8 border-red-500 px-10 py-4 rounded-2xl">
+                    <span class="text-red-500 font-black text-5xl md:text-7xl">SOLD OUT</span>
+                </div>
+            </div>
+            <div class="glass-card p-8 md:p-12 rounded-[3rem] flex flex-col md:flex-row items-center gap-10 opacity-30 grayscale">
+                <div class="relative w-full md:w-1/2 flex justify-center">
+                    <div class="relative w-48 h-48 md:w-64 md:h-64">
+                        <img src="Food_image/nasi_ayam.jpeg" class="absolute top-0 left-0 w-40 h-40 md:w-52 md:h-52 object-cover rounded-3xl rotate-[-10deg] border-4 border-[#1a2e26] shadow-2xl z-20">
+                        <img src="Food_image/es.jpeg" class="absolute bottom-0 right-0 w-40 h-40 md:w-52 md:h-52 object-cover rounded-3xl rotate-[10deg] border-4 border-[#1a2e26] shadow-2xl z-10">
                     </div>
-
-                    <div class="w-full md:w-1/2 text-center md:text-left">
-                        <h3 class="text-3xl md:text-4xl font-extrabold mb-4 leading-tight">Nasi Bakar + <br><span class="text-green-400">Es Hulk Segar</span></h3>
-                        <p class="text-green-100/60 mb-6 font-medium">Kombinasi sempurna buat yang laper dan haus sekaligus. Lebih hemat 3K!</p>
-                        
-                        <div class="flex items-center justify-center md:justify-start gap-4 mb-8">
-                            <span class="text-green-100/30 line-through text-xl font-bold">18K</span>
-                            <span class="text-5xl font-black text-white">15K</span>
-                        </div>
-
-                        <div class="space-y-4">
-                            <div class="flex items-center justify-between bg-white/5 rounded-2xl p-2 border border-white/10 w-full max-w-[200px] mx-auto md:mx-0">
-                                <button onclick="changeQty('bundling-1', -1)" class="w-10 h-10 flex items-center justify-center rounded-xl bg-white/5 hover:bg-red-500 transition">-</button>
-                                <span id="qty-bundling-1" class="font-bold text-lg">1</span>
-                                <button onclick="changeQty('bundling-1', 1)" class="w-10 h-10 flex items-center justify-center rounded-xl bg-green-500 text-green-900 font-bold hover:bg-white transition">+</button>
-                            </div>
-                            
-                            <button onclick="sendWA('PAKET BUNDLING (Nasi Bakar + Es Hulk)', 'bundling-1')" class="w-full bg-green-400 text-green-900 py-4 rounded-2xl font-black text-lg hover:bg-white hover:scale-105 transition-all shadow-xl shadow-green-500/20">
-                                AMBIL PROMO INI 😤
-                            </button>
-                        </div>
+                </div>
+                <div class="w-full md:w-1/2 text-center md:text-left">
+                    <h3 class="text-3xl font-extrabold mb-4">Nasi Bakar + <br><span class="text-green-400">Es Hulk Segar</span></h3>
+                    <div class="flex items-center justify-center md:justify-start gap-4 mb-8">
+                        <span class="text-green-100/30 line-through text-xl font-bold">18K</span>
+                        <span class="text-5xl font-black text-white">15K</span>
                     </div>
+                    <button class="w-full btn-disabled py-4 rounded-2xl font-black">HABIS TERJUAL</button>
                 </div>
             </div>
         </div>
     </div>
 </section>
 
-    <section id="menu" class="py-24 container mx-auto px-6">
+<section id="menu" class="py-24 container mx-auto px-6">
     <div class="mb-16 text-center">
-        <h2 class="text-4xl font-bold mb-4" data-aos="fade-up">Pilih Favoritmu</h2>
-        <div class="h-1 w-20 bg-green-400 mx-auto" data-aos="fade-up" data-aos-delay="100"></div>
+        <h2 class="text-4xl font-bold mb-4">Pilih Favoritmu</h2>
+        <div class="h-1 w-20 bg-green-400 mx-auto"></div>
     </div>
 
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-        
-        <div class="glass-card p-6 rounded-[2.5rem] flex flex-col justify-between" data-aos="fade-up" data-aos-delay="100">
-            <div>
-                <img src="Food_image/nasi_ayam.jpeg"rounded-3xl mb-6 w-full h-48 object-cover">
+        <div class="glass-card p-6 rounded-[2.5rem] relative overflow-hidden flex flex-col justify-between" data-aos="fade-up">
+            <div class="absolute inset-0 sold-out-overlay">
+                <span class="text-red-500 font-black text-2xl -rotate-12 border-2 border-red-500 px-4 py-1">SOLD OUT</span>
+            </div>
+            <div class="opacity-20 grayscale">
+                <img src="Food_image/nasi_ayam.jpeg" class="rounded-3xl mb-6 w-full h-48 object-cover">
                 <h4 class="text-xl font-bold mb-1">Nasi Bakar Ayam Suwir</h4>
                 <p class="text-green-300 font-extrabold text-2xl mb-4">12K</p>
-            </div>
-            
-            <div class="space-y-4">
-                <div class="flex items-center justify-between bg-white/10 rounded-2xl p-2 border border-white/5">
-                    <button onclick="changeQty('nasi-bakar', -1)" class="w-10 h-10 flex items-center justify-center rounded-xl bg-white/10 hover:bg-red-500 transition">-</button>
-                    <span id="qty-nasi-bakar" class="font-bold text-lg porsi-val">1</span>
-                    <button onclick="changeQty('nasi-bakar', 1)" class="w-10 h-10 flex items-center justify-center rounded-xl bg-green-500 text-green-900 font-bold hover:bg-white transition">+</button>
-                </div>
-                
-                <button onclick="sendWA('Nasi Bakar Ayam Suwir', 'nasi-bakar')" class="w-full bg-white text-green-900 py-4 rounded-2xl font-bold hover:bg-green-400 transition transform active:scale-95 flex items-center justify-center gap-2">
-                    <span>Pesan via WA</span>
-                </button>
+                <button class="w-full btn-disabled py-4 rounded-2xl font-bold">Habis</button>
             </div>
         </div>
 
-        <div class="glass-card p-6 rounded-[2.5rem] flex flex-col justify-between" data-aos="fade-up" data-aos-delay="200">
-            <div>
+        <div class="glass-card p-6 rounded-[2.5rem] relative overflow-hidden flex flex-col justify-between" data-aos="fade-up" data-aos-delay="100">
+            <div class="absolute inset-0 sold-out-overlay">
+                <span class="text-red-500 font-black text-2xl -rotate-12 border-2 border-red-500 px-4 py-1">SOLD OUT</span>
+            </div>
+            <div class="opacity-20 grayscale">
                 <img src="Food_image/es.jpeg" class="rounded-3xl mb-6 w-full h-48 object-cover">
                 <h4 class="text-xl font-bold mb-1">Es Hijau / Es Hulk</h4>
                 <p class="text-green-300 font-extrabold text-2xl mb-4">6K</p>
-            </div>
-            <div class="space-y-4">
-                <div class="flex items-center justify-between bg-white/10 rounded-2xl p-2 border border-white/5">
-                    <button onclick="changeQty('es-hijau', -1)" class="w-10 h-10 flex items-center justify-center rounded-xl bg-white/10 hover:bg-red-500 transition">-</button>
-                    <span id="qty-es-hijau" class="font-bold text-lg porsi-val">1</span>
-                    <button onclick="changeQty('es-hijau', 1)" class="w-10 h-10 flex items-center justify-center rounded-xl bg-green-500 text-green-900 font-bold hover:bg-white transition">+</button>
-                </div>
-                <button onclick="sendWA('Es Hijau Segar', 'es-hijau')" class="w-full bg-white text-green-900 py-4 rounded-2xl font-bold hover:bg-green-400 transition transform active:scale-95 flex items-center justify-center gap-2">
-                    <span>Pesan via WA</span>
-                </button>
+                <button class="w-full btn-disabled py-4 rounded-2xl font-bold">Habis</button>
             </div>
         </div>
 
-        <div class="glass-card p-6 rounded-[2.5rem] flex flex-col justify-between" data-aos="fade-up" data-aos-delay="300">
-            <div>
+        <div class="glass-card p-6 rounded-[2.5rem] relative overflow-hidden flex flex-col justify-between" data-aos="fade-up" data-aos-delay="200">
+            <div class="absolute inset-0 sold-out-overlay">
+                <span class="text-red-500 font-black text-2xl -rotate-12 border-2 border-red-500 px-4 py-1">SOLD OUT</span>
+            </div>
+            <div class="opacity-20 grayscale">
                 <img src="Food_image/pentol.jpeg" class="rounded-3xl mb-6 w-full h-48 object-cover">
                 <h4 class="text-xl font-bold mb-1">Pentol Mercon Box</h4>
                 <p class="text-green-300 font-extrabold text-2xl mb-4">8K</p>
-            </div>
-            <div class="space-y-4">
-                <div class="flex items-center justify-between bg-white/10 rounded-2xl p-2 border border-white/5">
-                    <button onclick="changeQty('pentol', -1)" class="w-10 h-10 flex items-center justify-center rounded-xl bg-white/10 hover:bg-red-500 transition">-</button>
-                    <span id="qty-pentol" class="font-bold text-lg porsi-val">1</span>
-                    <button onclick="changeQty('pentol', 1)" class="w-10 h-10 flex items-center justify-center rounded-xl bg-green-500 text-green-900 font-bold hover:bg-white transition">+</button>
-                </div>
-                <button onclick="sendWA('Pentol Mercon Box', 'pentol')" class="w-full bg-white text-green-900 py-4 rounded-2xl font-bold hover:bg-green-400 transition transform active:scale-95 flex items-center justify-center gap-2">
-                    <span>Pesan via WA</span>
-                </button>
+                <button class="w-full btn-disabled py-4 rounded-2xl font-bold">Habis</button>
             </div>
         </div>
 
-        <div class="glass-card p-6 rounded-[2.5rem] flex flex-col justify-between" data-aos="fade-up" data-aos-delay="400">
-            <div>
+        <div class="glass-card p-6 rounded-[2.5rem] relative overflow-hidden flex flex-col justify-between" data-aos="fade-up" data-aos-delay="300">
+            <div class="absolute inset-0 sold-out-overlay">
+                <span class="text-red-500 font-black text-2xl -rotate-12 border-2 border-red-500 px-4 py-1">SOLD OUT</span>
+            </div>
+            <div class="opacity-20 grayscale">
                 <img src="Food_image/ceker.jpeg" class="rounded-3xl mb-6 w-full h-48 object-cover">
                 <h4 class="text-xl font-bold mb-1">Ceker Mercon Box</h4>
                 <p class="text-green-300 font-extrabold text-2xl mb-4">12K</p>
-            </div>
-            <div class="space-y-4">
-                <div class="flex items-center justify-between bg-white/10 rounded-2xl p-2 border border-white/5">
-                    <button onclick="changeQty('ceker', -1)" class="w-10 h-10 flex items-center justify-center rounded-xl bg-white/10 hover:bg-red-500 transition">-</button>
-                    <span id="qty-ceker" class="font-bold text-lg porsi-val">1</span>
-                    <button onclick="changeQty('ceker', 1)" class="w-10 h-10 flex items-center justify-center rounded-xl bg-green-500 text-green-900 font-bold hover:bg-white transition">+</button>
-                </div>
-                <button onclick="sendWA('Ceker Mercon Box', 'ceker')" class="w-full bg-white text-green-900 py-4 rounded-2xl font-bold hover:bg-green-400 transition transform active:scale-95 flex items-center justify-center gap-2">
-                    <span>Pesan via WA</span>
-                </button>
+                <button class="w-full btn-disabled py-4 rounded-2xl font-bold">Habis</button>
             </div>
         </div>
-
     </div>
 </section>
 
 <footer class="py-20 border-t border-white/10 text-center">
+    <img src="logo.png" alt="Logo" class="h-16 mx-auto mb-6 opacity-50 grayscale">
     <h2 class="text-3xl font-black text-green-400 mb-4 tracking-tighter">HAJIKU.</h2>
-    <p class="text-green-100/50 mb-8">Buka Setiap Ada Bazar</p>
+    <p class="text-green-100/50 mb-8 font-bold text-red-400 uppercase tracking-widest">SOLD OUT FOR TODAY!</p>
     <div class="flex justify-center gap-6 mb-12">
         <a href="https://wa.me/6282157925660" class="w-12 h-12 flex items-center justify-center rounded-full bg-white/5 hover:bg-green-400 transition">WA</a>
         <a href="https://www.instagram.com/12e.epilogue/" class="w-12 h-12 flex items-center justify-center rounded-full bg-white/5 hover:bg-green-400 transition">IG</a>
@@ -257,31 +207,24 @@
 
 <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 <script>
-        // Fungsi ganti jumlah porsi
-        function changeQty(id, delta) {
-            const qtyElement = document.getElementById('qty-' + id);
-            let currentQty = parseInt(qtyElement.innerText);
-            currentQty += delta;
-            
-            if (currentQty < 1) currentQty = 1; // Minimal 1 porsi
-            qtyElement.innerText = currentQty;
-        }
-        
-        // Fungsi kirim WA dengan format khusus
-        function sendWA(menuName, id) {
-            const porsi = document.getElementById('qty-' + id).innerText;
-            const phone = "6282157925660"; // GANTI DENGAN NOMOR WA KAMU
-            
-            // Format teks sesuai permintaan: 
-            // "Halo kaka, saya mau pesan Nasi Bakar {porsi} porsi. Nama: Kelas:"
-            const text = `Halo kaka, saya mau pesan ${menuName} sebanyak ${porsi} porsi.%0ANama: %0AKelas:`;
-            
-            window.open(`https://wa.me/${phone}?text=${text}`, '_blank');
-        }
-        AOS.init({
-            duration: 800,
-            once: false,
-        });
-    </script>
+    AOS.init({ duration: 800, once: false });
+    
+    function changeQty(id, delta) {
+        const qtyElement = document.getElementById('qty-' + id);
+        if(!qtyElement) return;
+        let currentQty = parseInt(qtyElement.innerText);
+        currentQty += delta;
+        if (currentQty < 1) currentQty = 1;
+        qtyElement.innerText = currentQty;
+    }
+
+    function sendWA(menuName, id) {
+        const qtyEl = document.getElementById('qty-' + id);
+        const porsi = qtyEl ? qtyEl.innerText : "1";
+        const phone = "6282157925660";
+        const text = `Halo kaka, saya mau pesan ${menuName} sebanyak ${porsi} porsi.%0ANama: %0AKelas:`;
+        window.open(`https://wa.me/${phone}?text=${text}`, '_blank');
+    }
+</script>
 </body>
 </html>
